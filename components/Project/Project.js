@@ -1,13 +1,10 @@
 import React from 'react';
 import styled, { withTheme } from 'styled-components';
 import PropTypes from 'prop-types';
-import Carousel, { Modal, ModalGateway } from 'react-images';
 import { transparentize, rgba } from 'polished';
 import posed from 'react-pose';
 
-import Thumbnail, { ImagesContainer } from './Thumbnail';
-import FullImageView from './FullImageView';
-import FullImageFooter from './FullImageFooter';
+
 import List, { ListItem } from '../common/List';
 import Accordian from './Accordian';
 
@@ -104,6 +101,16 @@ const PopoverInner = styled.span`
     padding: 10px;
 `;
 
+export const ImagesContainer = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+
+    margin: -20px;
+    & > div {
+        margin: 20px;
+    }
+`;
+
 class Project extends React.Component{
 
     static propTypes = {
@@ -183,32 +190,9 @@ class Project extends React.Component{
                     <Accordian
                         images={images}
                     />  
-                    {/* {images.map(({ source, title }, index) => (
-                        <Thumbnail
-                            onClick={() => this.toggleModal(index)}
-                            src={source}
-                            title={title}
-                            key={source}
-                        />
-                    ))} */}
                 </ImagesContainer>
             }
-
             </ContentContainer>
-
-
-            <ModalGateway>
-                
-                {this.state.modalIsOpen ? (
-                <Modal onClose={this.toggleModal}>
-                    <Carousel
-                        views={images}
-                        currentIndex={this.state.index}
-                        components={{ Footer: FullImageFooter }}
-                    />
-                </Modal>
-                ) : null}
-            </ModalGateway>
         </ProjectContainer>;
     }
 }
