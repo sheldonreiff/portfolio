@@ -20,7 +20,7 @@ jobs:
       - run:
           name: Deploying
           command: |
-            aws s3 sync out/ s3://slr-portfolio/app
+            aws s3 sync out/ s3://slr-portfolio
 workflows:
   version: 2
   build:
