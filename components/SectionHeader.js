@@ -1,0 +1,26 @@
+import React from 'react';
+import styled, { withTheme } from 'styled-components';
+
+const Container = styled.div`
+    margin: 0 0 40px 0;
+`;
+
+const Title = styled.h1`
+    color: ${props => props.color || props.theme.mainDark};
+    font-size: 3em;
+    margin: 0;
+`;
+
+const Underline = styled.span`
+    display: block;
+    background: ${props => props.underLineColor || props.theme.mainDark};
+    width: 30px;
+    height: 10px;
+`;
+
+const SectionHeader = props => <Container>
+    <Title {...props}>{props.title}</Title>
+    <Underline {...props}/>
+</Container>;
+
+export default withTheme(SectionHeader);
