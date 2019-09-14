@@ -1,0 +1,30 @@
+version: 2
+jobs:
+  deploy:
+    docker:
+      - image: node:10.16.3-buster
+    steps:
+      - checkout
+      - run:
+          name: Build
+          command: |
+            yarn install
+            yarn build
+            yarn export
+      - run:
+          name: Installing deployment dependencies
+          command: |
+            pip3 install awscli
+      - run:
+          name: Deploying
+          command: |
+            aws s3 sync out/ s3://slr-dist/portfolio/app
+workflows:
+  version: 2
+  build:
+    jobs:
+      - deploy:
+          filters:
+            branches:
+              only:
+                - master
