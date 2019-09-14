@@ -2,6 +2,7 @@ import React from 'react';
 import styled, { withTheme } from 'styled-components';
 import theme from './theme.js';
 import { Content } from './common/Layout';
+import PropTypes from 'prop-types';
 
 import SectionHeader from './SectionHeader';
 import Skill from './Skill';
@@ -39,5 +40,12 @@ const About = props => <Container>
         </SkillsContainer>
     </Content>
 </Container>;
+
+About.propTypes = {
+    data: PropTypes.shape({
+        bio: PropTypes.array.isRequired,
+        tech: PropTypes.array.isRequired,
+    }),
+};
 
 export default withTheme(About);

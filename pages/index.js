@@ -1,8 +1,10 @@
 import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
+import fetch from 'isomorphic-unfetch';
+import PropTypes from 'prop-types';
+
 import theme from '../components/theme.js';
 import '../styles.css';
-import fetch from 'isomorphic-unfetch';
 
 import Experiences from '../components/Experiences';
 import About from '../components/About';
@@ -163,41 +165,45 @@ const SectionDivider = styled.div`
 
 
 function App({ data }) {
-  return <ThemeProvider theme={theme}>
-	<React.Fragment>
-		<SplashContainer>
-			<Splash>
-				<NameContainer>
-					<Greeting>Hi!</Greeting>
-					<Name>
-						<PreName>I'M</PreName>
-						<br/>SHELDON<br/>REIFF
-					</Name>
-				</NameContainer>
-				
-				<Title>I solve problems with great software <TitleShadow /></Title>
+	return <ThemeProvider theme={theme}>
+		<React.Fragment>
+			<SplashContainer>
+				<Splash>
+					<NameContainer>
+						<Greeting>Hi!</Greeting>
+						<Name>
+							<PreName>I&apos;M</PreName>
+							<br/>SHELDON<br/>REIFF
+						</Name>
+					</NameContainer>
+					
+					<Title>I solve problems with great software <TitleShadow /></Title>
 
-				<DownArrowContainer>
-					<DownArrowArrangment>
-						<DownArrow1 className='icon-chevron-down' />
-						<DownArrow2 className='icon-chevron-down' />
-					</DownArrowArrangment>
-				</DownArrowContainer>
-			</Splash>
-		</SplashContainer>
-      
-		<ContentContainer>
-			<About data={data.about} />
-			<SectionDivider/>
-			<Experiences experiences={data.experiences}/>
-			<SectionDivider/>
-			<Contact />
-		</ContentContainer>
+					<DownArrowContainer>
+						<DownArrowArrangment>
+							<DownArrow1 className='icon-chevron-down' />
+							<DownArrow2 className='icon-chevron-down' />
+						</DownArrowArrangment>
+					</DownArrowContainer>
+				</Splash>
+			</SplashContainer>
+		
+			<ContentContainer>
+				<About data={data.about} />
+				<SectionDivider/>
+				<Experiences data={data.experiences}/>
+				<SectionDivider/>
+				<Contact />
+			</ContentContainer>
 		</React.Fragment>
 	</ThemeProvider>;
 }
 
-App.getInitialProps = async ({ req }) => {
+App.propTypes = {
+	data: PropTypes.object,
+}
+
+App.getInitialProps = async () => {
 	const res = await fetch(process.env.DATA_URL);
 	const data = await res.json();
 	return { data };

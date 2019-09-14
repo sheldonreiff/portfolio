@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Formik, Form, Field } from 'formik';
+import { Field } from 'formik';
 import BarLoader from 'react-spinners/BarLoader';
 import theme from '../theme.js';
 import posed from 'react-pose';
 import { transparentize } from 'polished';
+import PropTypes from 'prop-types';
 
 const LoaderButton = props => <button
         {...props}
@@ -17,6 +18,11 @@ const LoaderButton = props => <button
             loading={props.loading}
         />
     </button>;
+
+LoaderButton.propTypes = {
+    children: PropTypes.string.isRequired,
+    loading: PropTypes.bool,
+}
 
 export const Button = styled(LoaderButton)`
     display: flex;
@@ -37,6 +43,10 @@ export const Button = styled(LoaderButton)`
         color: ${props => props.theme.black};
     }
 `;
+
+Button.propTypes = {
+    loading: PropTypes.bool.isRequired,
+}
 
 export const Input = styled(Field)`
     padding: 5px 0;
@@ -74,6 +84,13 @@ export const Error = props => {
         pose={error ? 'visible' : 'hidden'}
     >{error ? error : <span style={{visibility: 'hidden'}}>placeholder</span> }</BaseErrorMessage>;
 }
+
+Error.propTypes = {
+    errors: PropTypes.object,
+    name: PropTypes.string.isRequired,
+    touched: PropTypes.object,
+}
+
 
 const BaseMessage = posed.span({
     'hidden': { opacity: 0, x: -20 },

@@ -1,7 +1,8 @@
 import React from 'react';
 import styled, { withTheme } from 'styled-components';
-import { Content } from './common/Layout';
+import PropTypes from 'prop-types';
 
+import { Content } from './common/Layout';
 import SectionHeader from './SectionHeader';
 import Experience from './Experience';
 
@@ -12,9 +13,13 @@ const Container = styled.div`
 
 const Experiences = props => <Container>
     <Content>
-        <SectionHeader title='WORK'></SectionHeader>
+    <SectionHeader title='WORK'></SectionHeader>
     </Content>
-    {props.experiences.map(experience => <Experience {...experience} key={experience.name} />)}
+    {props.data.map(experience => <Experience {...experience} key={experience.name} />)}
 </Container>;
+
+Experiences.propTypes = {
+    data: PropTypes.array.isRequired,
+}
 
 export default withTheme(Experiences);

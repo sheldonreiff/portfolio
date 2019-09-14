@@ -73,6 +73,12 @@ const FullScreenImage = props => <FullScreenImageContainer pose={props.show ? 'v
     <ZoomedImage src={props.source} />
 </FullScreenImageContainer>;
 
+FullScreenImage.propTypes = {
+    show: PropTypes.bool.isRequired,
+    handleClose: PropTypes.func.isRequired,
+    source: PropTypes.string.isRequired,
+}
+
 class AccordianFold extends React.Component{
     state = {
         open: false,
@@ -113,8 +119,12 @@ class AccordianFold extends React.Component{
     }
 }
 
+AccordianFold.propTypes = {
+    image: PropTypes.object.isRequired,
+}
+
 const Accordian = props => <AccordianContainer>
-    {props.images.map(image => <AccordianFold image={image} />)}
+    {props.images.map(image => <AccordianFold key={image.source} image={image} />)}
 </AccordianContainer>;
 
 Accordian.propTypes = {

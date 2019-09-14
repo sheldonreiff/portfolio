@@ -88,6 +88,8 @@ Experience.propTypes = {
     description: PropTypes.string,
     projects: PropTypes.array.isRequired,
     bullets: PropTypes.array,
+    title: PropTypes.string,
+    stay: PropTypes.string,
 }
 
 export default withTheme(Experience);

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { withTheme } from 'styled-components';
-import { Formik, Form, ErrorMessage } from 'formik';
+import { Formik, Form } from 'formik';
 import { object, string } from 'yup';
 import { Input, Button, Error, Message } from './common/Form';
 import axios from 'axios';
@@ -117,10 +117,10 @@ class Contact extends React.Component{
         setStatus(null);
         this.setState({ submittedOnce: true });
         axios.post(`${process.env.API_URL}/contact`, values)
-            .then(res => {
+            .then(() => {
                 resetForm();
                 setStatus('SUCCESS');
-            }).catch(error => {
+            }).catch(() => {
                 setStatus('ERROR');
                 setSubmitting(false);
             });

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { withTheme } from 'styled-components';
 import PropTypes from 'prop-types';
-import { transparentize, rgba } from 'polished';
+import { transparentize } from 'polished';
 import posed from 'react-pose';
 
 
@@ -75,6 +75,11 @@ const ProjectLinks = props => <ProjectLinksContainer>
         <ProjectLink href={`https://${props.sourceLink}`} target='_blank'>{props.sourceLink}</ProjectLink>
     </ProjectLinkContainer>
 </ProjectLinksContainer>;
+
+ProjectLinks.propTypes = {
+    sourceLink: PropTypes.string,
+    viewLink: PropTypes.string,
+}
 
 const LinkIcon = styled.span`
     margin-right: 10px;
@@ -170,7 +175,7 @@ class Project extends React.Component{
                                 onClick={this.togglePrivateBadge}
                             >
                                 <PopoverInner>
-                                    This is an internal application so I can't share a live example, but I may be able to provide a code sample
+                                    This is an internal application so I can&apos;t share a live example, but I may be able to provide a code sample
                                 </PopoverInner>
                             </Popover>
                         }
