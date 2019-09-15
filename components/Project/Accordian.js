@@ -35,7 +35,7 @@ const AccordianImage = styled.img`
 const ZoomedImage = styled.img`
     cursor: zoom-out;
     max-width: 100vw;
-    max-height: 100vh;
+    max-height: 90vh;
     display: block;
 `;
 
@@ -69,7 +69,7 @@ const DropdownIndicator = styled(DropdownIndicatorBase)`
     align-items: center;
 `;
 
-const FullScreenImage = props => <FullScreenImageContainer pose={props.show ? 'visible' : 'hidden'} onClick={props.handleClose}>
+const FullScreenImage = props => <FullScreenImageContainer pose={props.show ? 'visible' : 'hidden'} onClick={props.handleClose} style={{ transform: 'scale(0)' }} >
     <ZoomedImage src={props.source} />
 </FullScreenImageContainer>;
 
@@ -108,7 +108,7 @@ class AccordianFold extends React.Component{
             </AccordianOuter>
             <AccordianInner pose={pose}>
                 <p style={{ margin: '10px' }}>{description}</p>
-                <AccordianImage src={source} onClick={this.toggleFullscreen}/>
+                <AccordianImage src={source} onClick={this.toggleFullscreen} style={{ transform: this.state.open ? '' : 'scale(0)' }} />
             </AccordianInner>
             <FullScreenImage
                 show={this.state.fullscreen}

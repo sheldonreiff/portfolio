@@ -10,7 +10,8 @@ import Accordian from './Accordian';
 
 const ProjectContainer = styled.div`
     border-left: solid 5px ${props => transparentize(.7, props.theme.mainDark)};
-    padding-left: 30px;
+    padding-left: calc(2% + 5px);
+    overflow: hidden;
 `;
 
 const MainContainer = styled.div`
@@ -59,6 +60,7 @@ const ProjectLinkContainer = styled.div`
 
 const ProjectLink = styled.a`
     overflow-wrap: break-word;
+    word-break: break-all;
     hyphens: auto;
     color: ${props => props.theme.mainDark};
 `;
@@ -109,11 +111,6 @@ const PopoverInner = styled.span`
 export const ImagesContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
-
-    margin: -20px;
-    & > div {
-        margin: 20px;
-    }
 `;
 
 class Project extends React.Component{
@@ -188,15 +185,14 @@ class Project extends React.Component{
                         </List>
                     }
                 </MainContainer>
-                
 
-            {images &&
-                <ImagesContainer>
-                    <Accordian
-                        images={images}
-                    />  
-                </ImagesContainer>
-            }
+                {images &&
+                    <ImagesContainer>
+                        <Accordian
+                            images={images}
+                        />  
+                    </ImagesContainer>
+                }
             </ContentContainer>
         </ProjectContainer>;
     }

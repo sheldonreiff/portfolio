@@ -8,15 +8,21 @@ const List = styled.ul`
     padding: 0;
 `;
 
+const BaseListItem = styled.li`
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+`;
+
 const Bullet = styled.span`
     margin-right: 10px;
     font-size: .7em;
 `;
 
-export const ListItem = props => <li>
+export const ListItem = props => <BaseListItem>
     <Bullet className='icon-circle' />
     <span>{props.children}</span>
-</li>;
+</BaseListItem>;
 
 ListItem.propTypes = {
     children: PropTypes.node.isRequired,

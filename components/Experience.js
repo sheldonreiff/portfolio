@@ -30,7 +30,7 @@ const TitleContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
-    margin: 0;
+    margin: 0 0 15px 0;
     & > * {
         margin: 10px;
     }

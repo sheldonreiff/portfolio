@@ -13,6 +13,7 @@ const Container = styled.div`
     background: ${props => props.theme.black};
     color: ${props => props.theme.gray};
     padding: 75px 0 75px 0;
+    overflow: hidden;
 `;
 
 const Main = styled.div`
@@ -21,7 +22,7 @@ const Main = styled.div`
     flex-wrap: wrap;
     margin: -20px;
 
-    @media (max-width: 700px) {
+    @media (max-width: 750px) {
         flex-direction: column;
     }
 `;
@@ -49,7 +50,7 @@ const StyledForm = styled(Form)`
     flex-grow: 2;
     margin: 20px;
 
-    @media (max-width: 700px) {
+    @media (max-width: 750px) {
         order: 2;
     }
 `;
@@ -76,7 +77,7 @@ const StyledInput = styled(Input)`
 `;
 
 const StyledButton = styled(Button)`
-    margin: 25px 10px;
+    margin: 25px 10px 0;
 `;
 
 const StyledMessage = styled(Message)`
@@ -127,7 +128,6 @@ class Contact extends React.Component{
     }
 
     render(){
-
         return <Container>
             <Content>
                 <SectionHeader
@@ -204,6 +204,7 @@ class Contact extends React.Component{
                                         name="message"
                                         placeholder='Your message'
                                         component='textarea'
+                                        rows={5}
                                     />
                                     <Error
                                         errors={errors}
