@@ -23,6 +23,13 @@ module.exports = withCSS({
                         '400'
                     ],
                 },
+                {
+                    family: 'Heebo',
+                    variants: [
+                        '300',
+                        '400'
+                    ],
+                },
             ],
             formats: [
                 'woff',
