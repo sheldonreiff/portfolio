@@ -70,7 +70,10 @@ const DropdownIndicator = styled(DropdownIndicatorBase)`
 `;
 
 const FullScreenImage = props => <FullScreenImageContainer pose={props.show ? 'visible' : 'hidden'} onClick={props.handleClose} style={{ transform: 'scale(0)' }} >
-    <ZoomedImage src={`${process.env.CONTENT_URL}/${props.source}`} />
+    <ZoomedImage
+        src={`${process.env.CONTENT_URL}/${props.source}`}
+        alt={`Screenshot of ${props.title}`}
+    />
 </FullScreenImageContainer>;
 
 FullScreenImage.propTypes = {
@@ -108,12 +111,18 @@ class AccordianFold extends React.Component{
             </AccordianOuter>
             <AccordianInner pose={pose}>
                 <p style={{ margin: '10px' }}>{description}</p>
-                <AccordianImage src={`${process.env.CONTENT_URL}/${source}`} onClick={this.toggleFullscreen} style={{ transform: this.state.open ? '' : 'scale(0)' }} />
+                <AccordianImage
+                    src={`${process.env.CONTENT_URL}/${source}`}
+                    onClick={this.toggleFullscreen}
+                    style={{ transform: this.state.open ? '' : 'scale(0)' }}
+                    alt={`Screenshot of ${title}`}
+                />
             </AccordianInner>
             <FullScreenImage
                 show={this.state.fullscreen}
                 handleClose={this.toggleFullscreen}
                 source={source}
+                title={title}
             />
         </React.Fragment>
     }

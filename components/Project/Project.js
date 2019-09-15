@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import { transparentize } from 'polished';
 import posed from 'react-pose';
 
-
 import List, { ListItem } from '../common/List';
 import Accordian from './Accordian';
+import ProjectLinks from './ProjectLinks';
 
 const ProjectContainer = styled.div`
     border-left: solid 5px ${props => transparentize(.7, props.theme.mainDark)};
@@ -39,11 +39,6 @@ const SourceContainer = styled.div`
     position: relative;
 `;
 
-const ProjectLinksContainer = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-`;
-
 const ContentContainer = styled.div`
     margin: -10px -20px;
     & > * {
@@ -51,41 +46,6 @@ const ContentContainer = styled.div`
     }
     display: flex;
     flex-wrap: wrap;
-`;
-
-const ProjectLinkContainer = styled.div`
-    display: flex;
-    margin: 10px;
-`;
-
-const ProjectLink = styled.a`
-    overflow-wrap: break-word;
-    word-break: break-all;
-    hyphens: auto;
-    color: ${props => props.theme.mainDark};
-`;
-
-const ProjectLinks = props => <ProjectLinksContainer>
-    {props.viewLink &&
-        <ProjectLinkContainer>
-            <LinkIcon className='icon-link'/>
-            <ProjectLink href={`https://${props.viewLink}`} target='_blank'>{props.viewLink}</ProjectLink>
-        </ProjectLinkContainer>
-    }
-    <ProjectLinkContainer>
-        <LinkIcon className='icon-code'/>
-        <ProjectLink href={`https://${props.sourceLink}`} target='_blank'>{props.sourceLink}</ProjectLink>
-    </ProjectLinkContainer>
-</ProjectLinksContainer>;
-
-ProjectLinks.propTypes = {
-    sourceLink: PropTypes.string,
-    viewLink: PropTypes.string,
-}
-
-const LinkIcon = styled.span`
-    margin-right: 10px;
-    color: ${props => props.theme.mainDark};
 `;
 
 const BasePopover = posed.span({
