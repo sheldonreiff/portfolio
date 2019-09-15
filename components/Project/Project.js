@@ -3,6 +3,7 @@ import styled, { withTheme } from 'styled-components';
 import PropTypes from 'prop-types';
 import { transparentize } from 'polished';
 import posed from 'react-pose';
+const isTouchDevice = require('is-touch-device');
 
 import List, { ListItem } from '../common/List';
 import Accordian from './Accordian';
@@ -109,6 +110,8 @@ class Project extends React.Component{
 
         const { privateBadgeHover } = this.state;
 
+        const isTouch = isTouchDevice();
+
         return <ProjectContainer>
             <h2>{name}</h2>
             <ContentContainer>
@@ -120,8 +123,8 @@ class Project extends React.Component{
                                 sourceLink={sourceLink}
                             />
                             : <PrivateBadge
-                                onMouseEnter={() => this.togglePrivateBadge(true)}
-                                onMouseLeave={() => this.togglePrivateBadge(false)}
+                                onMouseEnter={() => isTouch ? null : this.togglePrivateBadge(true)}
+                                onMouseLeave={() => isTouch ? null : this.togglePrivateBadge(false)}
                                 onClick={() => this.togglePrivateBadge()}
                             >Proprietary</PrivateBadge>
                         }
