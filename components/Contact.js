@@ -49,6 +49,8 @@ const StyledForm = styled(Form)`
     max-width: 800px;
     flex-grow: 2;
     margin: 20px;
+    flex-shrink: 1;
+    flex-basis: 0;
 
     @media (max-width: 750px) {
         order: 2;
@@ -78,10 +80,14 @@ const StyledInput = styled(Input)`
 
 const StyledButton = styled(Button)`
     margin: 25px 10px 0;
+    align-self: flex-start;
 `;
 
 const StyledMessage = styled(Message)`
     margin: 25px 10px;
+    align-self: flex-start;
+    flex-grow: 1;
+    flex-basis: 0;
 `;
 
 
