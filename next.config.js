@@ -11,7 +11,9 @@ module.exports = withCSS({
             }]
         })
 
-        config.plugins.push(new Dotenv());
+        config.plugins.push(new Dotenv({
+            systemvars: true,
+        }));
 
         config.plugins.push(new GoogleFontsPlugin({
             fonts: [
