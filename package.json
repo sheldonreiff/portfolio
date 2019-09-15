@@ -23,7 +23,6 @@
     "polished": "^3.4.1",
     "react": "16.9.0",
     "react-dom": "16.9.0",
-    "react-lazyload": "^2.6.2",
     "react-pose": "^4.0.8",
     "react-scripts": "3.1.0",
     "react-spinners": "^0.6.1",

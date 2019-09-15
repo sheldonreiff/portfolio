@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import posed from 'react-pose';
 import PropTypes from 'prop-types';
 import { transparentize } from 'polished';
-import LazyLoad from 'react-lazyload';
 
 const AccordianContainer = styled.div`
     max-width: 600px;
@@ -71,9 +70,7 @@ const DropdownIndicator = styled(DropdownIndicatorBase)`
 `;
 
 const FullScreenImage = props => <FullScreenImageContainer pose={props.show ? 'visible' : 'hidden'} onClick={props.handleClose} style={{ transform: 'scale(0)' }} >
-    <LazyLoad once>
-        <ZoomedImage src={`${process.env.CONTENT_URL}/${props.source}`} />
-    </LazyLoad>
+    <ZoomedImage src={`${process.env.CONTENT_URL}/${props.source}`} />
 </FullScreenImageContainer>;
 
 FullScreenImage.propTypes = {
@@ -111,9 +108,7 @@ class AccordianFold extends React.Component{
             </AccordianOuter>
             <AccordianInner pose={pose}>
                 <p style={{ margin: '10px' }}>{description}</p>
-                <LazyLoad once>
-                    <AccordianImage src={`${process.env.CONTENT_URL}/${source}`} onClick={this.toggleFullscreen} style={{ transform: this.state.open ? '' : 'scale(0)' }} />
-                </LazyLoad>   
+                <AccordianImage src={`${process.env.CONTENT_URL}/${source}`} onClick={this.toggleFullscreen} style={{ transform: this.state.open ? '' : 'scale(0)' }} />
             </AccordianInner>
             <FullScreenImage
                 show={this.state.fullscreen}
