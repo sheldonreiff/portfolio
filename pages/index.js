@@ -11,6 +11,7 @@ import About from '../components/About';
 import Contact from '../components/Contact';
 import { Content } from '../components/common/Layout';
 
+
 const SplashContainer = styled.div`
 	min-height: 100vh;
 	position: relative;
@@ -164,39 +165,42 @@ const SectionDivider = styled.div`
 `;
 
 
-function App({ data }) {
-	return <ThemeProvider theme={theme}>
-		<React.Fragment>
-			<SplashContainer>
-				<Splash>
-					<NameContainer>
-						<Greeting>Hi!</Greeting>
-						<Name>
-							<PreName>I&apos;M</PreName>
-							<br/>SHELDON<br/>REIFF
-						</Name>
-					</NameContainer>
-					
-					<Title>I solve problems with great software <TitleShadow /></Title>
+class App extends React.Component {
+	render(){
+		const { data } = this.props;
+		return <ThemeProvider theme={theme}>
+			<React.Fragment>
+				<SplashContainer>
+					<Splash>
+						<NameContainer>
+							<Greeting>Hi!</Greeting>
+							<Name>
+								<PreName>I&apos;M</PreName>
+								<br/>SHELDON<br/>REIFF
+							</Name>
+						</NameContainer>
+						
+						<Title>I solve problems with great software <TitleShadow /></Title>
 
-					<DownArrowContainer>
-						<DownArrowArrangment>
-							<DownArrow1 className='icon-chevron-down' />
-							<DownArrow2 className='icon-chevron-down' />
-						</DownArrowArrangment>
-					</DownArrowContainer>
-				</Splash>
-			</SplashContainer>
-		
-			<ContentContainer>
-				<About data={data.about} />
-				<SectionDivider/>
-				<Experiences data={data.experiences}/>
-				<SectionDivider/>
-				<Contact />
-			</ContentContainer>
-		</React.Fragment>
-	</ThemeProvider>;
+						<DownArrowContainer>
+							<DownArrowArrangment>
+								<DownArrow1 className='icon-chevron-down' />
+								<DownArrow2 className='icon-chevron-down' />
+							</DownArrowArrangment>
+						</DownArrowContainer>
+					</Splash>
+				</SplashContainer>
+			
+				<ContentContainer>
+					<About data={data.about} />
+					<SectionDivider/>
+					<Experiences data={data.experiences}/>
+					<SectionDivider/>
+					<Contact />
+				</ContentContainer>
+			</React.Fragment>
+		</ThemeProvider>;
+	}
 }
 
 App.propTypes = {
@@ -204,7 +208,7 @@ App.propTypes = {
 }
 
 App.getInitialProps = async () => {
-	const res = await fetch(process.env.DATA_URL);
+	const res = await fetch(`${process.env.CONTENT_URL}/data.json`);
 	const data = await res.json();
 	return { data };
 };

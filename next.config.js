@@ -1,5 +1,6 @@
 const withCSS = require('@zeit/next-css');
 const Dotenv = require('dotenv-webpack');
+const GoogleFontsPlugin = require('google-fonts-plugin');
 
 module.exports = withCSS({
     webpack(config, options) {
@@ -11,6 +12,22 @@ module.exports = withCSS({
         })
 
         config.plugins.push(new Dotenv());
+
+        config.plugins.push(new GoogleFontsPlugin({
+            fonts: [
+                {
+                    family: 'Lexend Deca',
+                    variants: [
+                        '400'
+                    ],
+                },
+            ],
+            formats: [
+                'woff',
+                'woff2'
+            ],
+            filename: './static/css/fonts.css',
+        }));
 
         return config;
     },

@@ -54,9 +54,7 @@
 }
 
 
-
-
-@import url('https://fonts.googleapis.com/css?family=Heebo:300,400|Permanent+Marker|Lexend+Deca&display=swap');
+@import url('/_next/static/css/fonts.css');
 
 html {
   height: 100%;
@@ -71,7 +69,7 @@ body {
 }
 
 * {
-  font-family: Lexend Deca, sans-serif;
+  font-family: Lexend Deca, Helvetica, sans-serif;
 }
 
 #root{
@@ -79,8 +77,9 @@ body {
 }
 
 h1, h2, h3, h4{
-  font-family: Heebo, sans-serif;
+  font-family: Heebo, Helvetica, sans-serif;
 }
+
 
 small{
   text-transform: uppercase;

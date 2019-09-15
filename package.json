@@ -17,16 +17,18 @@
     "babel-plugin-styled-components": "^1.10.6",
     "dotenv-webpack": "^1.7.0",
     "formik": "^1.5.8",
+    "google-fonts-plugin": "^5.0.0",
+    "isomorphic-unfetch": "^3.0.0",
     "next": "9.0.5",
     "polished": "^3.4.1",
     "react": "16.9.0",
     "react-dom": "16.9.0",
+    "react-lazyload": "^2.6.2",
     "react-pose": "^4.0.8",
     "react-scripts": "3.1.0",
     "react-spinners": "^0.6.1",
     "styled-components": "^4.3.2",
-    "yup": "^0.27.0",
-    "isomorphic-unfetch": "^3.0.0"
+    "yup": "^0.27.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",
