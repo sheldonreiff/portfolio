@@ -13,6 +13,7 @@
         "sourceType": "module"
     },
     "globals": {
+        "require": true,
         "process": true
     }
 }

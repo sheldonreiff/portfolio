@@ -80,6 +80,7 @@ FullScreenImage.propTypes = {
     show: PropTypes.bool.isRequired,
     handleClose: PropTypes.func.isRequired,
     source: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
 }
 
 class AccordianFold extends React.Component{
