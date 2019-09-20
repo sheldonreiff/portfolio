@@ -2,6 +2,7 @@ import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import fetch from 'isomorphic-unfetch';
 import PropTypes from 'prop-types';
+import Head from 'next/head';
 
 import theme from '../components/theme.js';
 import '../styles.css';
@@ -25,7 +26,7 @@ const Splash = styled.div`
 	flex-direction: column;
 	padding-bottom: 75px;
 
-	background: url(./static/images/code_pattern.svg);
+	background: url(/static/images/code_pattern.svg);
 `;
 
 const Greeting = styled.span`
@@ -170,6 +171,11 @@ class App extends React.Component {
 		const { data } = this.props;
 		return <ThemeProvider theme={theme}>
 			<React.Fragment>
+				<Head>
+					<title>Sheldon Reiff - Portfolio</title>
+					<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+					<link rel="shortcut icon" type="image/png" href="/static/favicon.png"/>
+				</Head>
 				<SplashContainer>
 					<Splash>
 						<NameContainer>
