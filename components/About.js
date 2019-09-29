@@ -17,6 +17,7 @@ const SkillsContainer = styled.div`
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+    font-size: .95em;
     margin: 20px -5px 0;
     & > *{
         margin: 5px;
@@ -33,7 +34,7 @@ const About = props => <Container>
         
         {props.data.bio.map((paragraph, index) => <p key={`bio${index}`}>{paragraph}</p>)}
 
-        <h3>Technologies I currently work with</h3>
+        <h3>Technologies I currently work with the most</h3>
 
         <SkillsContainer>
             {props.data.tech.map(skill => <Skill key={skill}>{skill}</Skill>)}

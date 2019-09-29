@@ -186,7 +186,7 @@ class App extends React.Component {
 							</Name>
 						</NameContainer>
 						
-						<Title>I solve problems with great software <TitleShadow /></Title>
+						<Title>I solve problems with great software<TitleShadow /></Title>
 
 						<DownArrowContainer>
 							<DownArrowArrangment>
